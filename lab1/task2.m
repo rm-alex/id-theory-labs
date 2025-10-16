@@ -1,5 +1,5 @@
 datasets = {'zad21','zad22'};
-alpha = 0.05; % уровень значимости для F-теста
+alpha = 0.05;
 
 for k = 1:numel(datasets)
     name = datasets{k};
@@ -8,21 +8,12 @@ for k = 1:numel(datasets)
     T = data.T(:);
     V = data.V(:);
 
-    % idx = ~isnan(T) & ~isnan(V);
-    % T = T(idx);
-    % V = V(idx);
+    n = numel(T);
 
-    % n = numel(T);
-    % if n < 3
-    %     fprintf('Набор %s: недостаточно точек (n=%d) для оценки.\n', name, n);
-    %     continue;
-    % end
-
-    % Матрицы проектирования
     X1 = [T, ones(n,1)];             % H1: V = b*T + c
     X2 = [T.^2, T, ones(n,1)];       % H2: V = a*T^2 + b*T + c
 
-    % Оценки МНК (нормальное уравнение)
+    % Оценки МНК
     beta1 = X1 \ V;
     beta2 = X2 \ V;
 
@@ -42,8 +33,8 @@ for k = 1:numel(datasets)
     R2_1 = 1 - SSE1 / SST;
     R2_2 = 1 - SSE2 / SST;
 
-    p1 = size(X1,2); % число параметров в H1 (2)
-    p2 = size(X2,2); % число параметров в H2 (3)
+    p1 = size(X1,2); % число параметров в H1
+    p2 = size(X2,2); % число параметров в H2
 
     adjR2_1 = 1 - (SSE1/(n-p1)) / (SST/(n-1));
     adjR2_2 = 1 - (SSE2/(n-p2)) / (SST/(n-1));
