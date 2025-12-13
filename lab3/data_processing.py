@@ -24,7 +24,7 @@ def heatmap(data):
     plt.title('Heatmap')
     plt.show()
 
-df=pd.read_csv('Archive2025/data.csv')
+df=pd.read_csv('lab3/Archive2025/data.csv')
 df=process_data(df)
 
 heatmap(df)
@@ -39,9 +39,9 @@ df = df.drop(columns=to_drop)
 heatmap(df)
 print(df.columns)
 
-df.to_csv('processed_data.csv', index=False)
+df.to_csv('lab3/processed_data.csv', index=False)
 
-df_test = pd.read_csv('Archive2025/test.csv')
+df_test = pd.read_csv('lab3/Archive2025/test.csv')
 df_test = process_data(df_test)
 df_test = df_test.drop(columns=to_drop)
-df_test.to_csv('processed_test_data.csv', index=False)
+df_test.to_csv('lab3/processed_test_data.csv', index=False)

@@ -7,7 +7,7 @@ def get_rmse(y_true, y_pred):
     mse = np.mean((y_true - y_pred) ** 2)
     return np.sqrt(mse)
 
-df=pd.read_csv('processed_data.csv')
+df=pd.read_csv('lab3/processed_data.csv')
 
 m, n = df.shape
 idx = np.random.permutation(m)
@@ -40,4 +40,4 @@ y_pred_model = model.predict(X_test)
 rmse = get_rmse(y_test.values, y_pred_model)
 print("Test RMSE:", rmse)
 
-joblib.dump(model, 'model.joblib')
+joblib.dump(model, 'lab3/model.joblib')

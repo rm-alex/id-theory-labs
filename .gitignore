@@ -1,0 +1,16 @@
+*.aux
+*.asv
+*.fls
+*.log
+*.out
+*.toc
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.slx.autosave
+slprj
+__pycache__
+.idea
+
+# model uses 2+ GB of storage
+model.joblib
