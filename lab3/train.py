@@ -41,3 +41,23 @@ rmse = get_rmse(y_test.values, y_pred_model)
 print("Test RMSE:", rmse)
 
 joblib.dump(model, 'lab3/model.joblib')
+
+# from sklearn.model_selection import GridSearchCV
+# rf = RandomForestRegressor(random_state=100, n_jobs=-1)
+# param_rf = {'n_estimators': [100, 200], 
+#             'max_depth': [10, 20, None], 
+#             'min_samples_leaf': [1, 2], 
+#             'min_samples_split': [2, 5], 
+#             'max_features': ['sqrt', 'log2']}
+# rf_grid = GridSearchCV(rf, 
+#                        param_rf, 
+#                        cv=4, 
+#                        scoring='neg_root_mean_squared_error', 
+#                        n_jobs=-1)
+# rf_grid.fit(X_train, y_train)
+# best_rf = rf_grid.best_estimator_
+# print("Best RMSE:", -rf_grid.best_score_)
+# print("Best params:", rf_grid.best_params_)
+# y_pred_rf = best_rf.predict(X_test)
+# rmse_rf = get_rmse(y_test.values, y_pred_rf)
+# print("Test RMSE:", rmse_rf)
